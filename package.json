@@ -1,7 +1,7 @@
 {
     "name": "@bradthomasbrown/finite-curve",
     "description": "Minimal, unoptimized, and unaudited elliptic curve over finite fields library in JavaScript/TypeScript.",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "author": "Brad Brown <https://t.me/bradthomasbrown>",
     "devDependencies": {
         "typescript": "^5.9.3"
