@@ -102,7 +102,7 @@ class FiniteCurve {
     /**
      * Multiply a point by a scalar over this instance of an elliptic curve.
      * @param {FinitePoint} Q - The FinitePoint that will receive the product of n and P.
-     * @param {FinitePoint} n - The scalar multiplier of the multiplication operation.
+     * @param {bigint|number} n - The scalar multiplier of the multiplication operation.
      * @param {FinitePoint} P - The FinitePoint multiplicand of the multiplication operation.
      * @returns {FinitePoint} The FinitePoint receiving the product of the multiplication operation.
      */
