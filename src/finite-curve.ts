@@ -108,15 +108,14 @@ class FiniteCurve {
      */
 	multiply(Q:FinitePoint, n:bigint|number, P:FinitePoint):FinitePoint {
         n = BigInt(n);
-		Q.x = undefined;
-		Q.y = undefined;
-		Q.isIdentity = true;
-		const _c5_ = new FinitePoint(P.x as bigint, P.y as bigint);
+        const _6f_ = new FinitePoint();
+		const _c5_ = new FinitePoint(P.x!, P.y!);
 		while (n > 0n) {
-			if ((n & 1n) != 0n) this.add(Q, Q, _c5_);
+			if ((n & 1n) != 0n) this.add(_6f_, _6f_, _c5_);
 			this.double(_c5_, _c5_);
 			n >>= 1n;
 		}
+        _6f_.move(Q);
 		return Q;
 	}
 
