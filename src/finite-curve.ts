@@ -135,10 +135,35 @@ class FinitePoint {
     constructor()
     constructor(x:number)
 	constructor(x?:bigint|number, y?:bigint|number) {
-		this.x = typeof x == "number" ? BigInt(x) : x;
-		this.y = typeof y == "number" ? BigInt(y) : y;
-		this.isIdentity = x === undefined && y === undefined;
+        if ((x === undefined && y === undefined) || x === Infinity) {
+            this.x = undefined;
+            this.y = undefined;
+            this.isIdentity = true;
+        } else {
+		    this.x = BigInt(x!);
+		    this.y = BigInt(y!);
+		    this.isIdentity = false;
+        }
 	}
+
+    /**
+     * Copy the properties of this FinitePoint to another FinitePoint.
+     * @param {FinitePoint} Q - The FinitePoint that will receive the copied properties.
+     */
+    move(Q:FinitePoint):void {
+        FinitePoint.move(Q, this);
+    }
+
+    /**
+     * Copy the properties of a FinitePoint to another FinitePoint.
+     * @param {FinitePoint} P - The FinitePoint whose properties will be copied.
+     * @param {FinitePoint} Q - The FinitePoint that will receive the copied properties.
+     */
+    static move(Q:FinitePoint, P:FinitePoint):void {
+        Q.x = P.x;
+        Q.y = P.y;
+        Q.isIdentity = P.isIdentity;
+    }
 
 }
 
