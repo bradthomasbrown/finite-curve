@@ -120,6 +120,14 @@ class FiniteCurve {
 		return Q;
 	}
 
+    /**
+     *  Negate a point in this FiniteField.
+     *  @param {FinitePoint} P - The point to negate.
+     */
+    negate(P:FinitePoint):void {
+        P.y = this.F.inverse(P.y!);
+    }
+
 }
 
 /**
