@@ -120,13 +120,6 @@ class FiniteCurve {
 		return Q;
 	}
 
-    pointAt(x:bigint|number, y:bigint|number):FinitePoint
-    pointAt(x:number):FinitePoint
-	pointAt(x:bigint|number, y?:bigint|number):FinitePoint {
-        if (x == Infinity || y === undefined) return new FinitePoint();
-		return new FinitePoint(x, y);
-	}
-
 }
 
 /**
