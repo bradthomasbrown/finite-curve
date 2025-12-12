@@ -193,3 +193,5 @@ class FinitePoint {
     }
 
 }
+
+export { FinitePoint, FiniteCurve };
