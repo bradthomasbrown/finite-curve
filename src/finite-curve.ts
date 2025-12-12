@@ -147,7 +147,7 @@ class FinitePoint {
 	}
 
     /**
-     * Copy the properties of this FinitePoint to another FinitePoint.
+     * Move the properties of this FinitePoint to another FinitePoint.
      * @param {FinitePoint} Q - The FinitePoint that will receive the copied properties.
      */
     move(Q:FinitePoint):void {
@@ -155,7 +155,15 @@ class FinitePoint {
     }
 
     /**
-     * Copy the properties of a FinitePoint to another FinitePoint.
+     * Create a new FinitePoint with properties copied from this FinitePoint.
+     * @returns {FinitePoint} A new FinitePoint with properties matching this FinitePoint.
+     */
+    copy():FinitePoint {
+        return FinitePoint.copy(this);
+    }
+
+    /**
+     * Move the properties of a FinitePoint to another FinitePoint.
      * @param {FinitePoint} P - The FinitePoint whose properties will be copied.
      * @param {FinitePoint} Q - The FinitePoint that will receive the copied properties.
      */
@@ -165,6 +173,15 @@ class FinitePoint {
         Q.isIdentity = P.isIdentity;
     }
 
-}
+    /**
+     * Create a new FinitePoint with properties copied from a FinitePoint.
+     * @param {FinitePoint} P - The FinitePoint to copy.
+     * @returns {FinitePoint} A new FinitePoint with properties matching FinitePoint `P`.
+     */
+    static copy(P:FinitePoint):FinitePoint {
+        const Q = new FinitePoint();
+        FinitePoint.move(Q, P);
+        return Q;
+    }
 
-export { FiniteCurve, FinitePoint };
+}
