@@ -120,11 +120,24 @@ class FiniteCurve {
 	}
 
     /**
-     *  Negate a point in this FiniteField.
-     *  @param {FinitePoint} P - The point to negate.
+     * Negate a point in this FiniteField.
+     * @param {FinitePoint} P - The point to negate.
      */
     negate(P:FinitePoint):void {
         P.y = this.F.inverse(P.y!);
+    }
+
+    /**
+     * Given a point with a known `x`, solve for `y` over this elliptic curve.
+     * - Note: Method assumes that the order of the field this elliptic curve is over is equivalent to 3 mod 4 and that `x` is a valid `x` coordinate.
+     * @param {FinitePoint} P - The point with known `x` to solve for `y`.
+     */
+    solve_p3mod4(P:FinitePoint):void {
+        const _00_ = this.F.power(P.x!, 3);
+        const _a5_ = this.F.multiply(this.a, P.x!);
+        const _fe_ = this.F.add(_00_, _a5_);
+        const _e1_ = this.F.add(_fe_, this.b);
+        P.y = this.F.sqrt_p3mod4(_e1_);
     }
 
 }
