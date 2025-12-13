@@ -183,6 +183,15 @@ class FinitePoint {
     }
 
     /**
+     * Determine if this point is equal to another point.
+     * @param {FinitePoint} Q - The point to compare with this point.
+     * @returns {boolean} Whether or not this point is equal to another point.
+     */
+    equals(Q:FinitePoint):boolean {
+        return FinitePoint.equals(this, Q);
+    }
+
+    /**
      * Move the properties of a FinitePoint to another FinitePoint.
      * @param {FinitePoint} P - The FinitePoint whose properties will be copied.
      * @param {FinitePoint} Q - The FinitePoint that will receive the copied properties.
@@ -202,6 +211,19 @@ class FinitePoint {
         const Q = new FinitePoint();
         FinitePoint.move(Q, P);
         return Q;
+    }
+
+    /**
+     * Determine if two points are equal.
+     * @param {FinitePoint} P - The first point in the equality comparison.
+     * @param {FinitePoint} Q - The second point in the equality comparison.
+     * @returns {boolean} Whether or not the two points are equal.
+     */
+    static equals(P:FinitePoint, Q:FinitePoint):boolean {
+        return true
+            && P.isIdentity == Q.isIdentity
+            && P.x == Q.x
+            && P.y == Q.y;
     }
 
 }
