@@ -4,8 +4,13 @@
     "version": "2.0.3",
     "author": "Brad Brown <https://t.me/bradthomasbrown>",
     "type": "module",
-    "main": "./dist/finite-curve.js",
+    "files": [
+        "dist/"
+    ],
+    "exports": {
+        ".": "./dist/finite-curve.js"
+    },
     "dependencies": {
-        "@bradthomasbrown/finite-field": "^1.0.1"
+        "@bradthomasbrown/finite-field": "^1.1.0"
     }
 }
