@@ -4,6 +4,10 @@
     "version": "2.2.0",
     "author": "Brad Brown <https://t.me/bradthomasbrown>",
     "type": "module",
+    "scripts": {
+        "bump-patch": "npm version patch && git push && npm publish --access=public",
+        "prepublishOnly": "bun test.ts"
+    },
     "files": [
         "dist/"
     ],
@@ -11,6 +15,10 @@
         ".": "./dist/finite-curve.js"
     },
     "dependencies": {
-        "@bradthomasbrown/finite-field": "^1.1.0"
+        "@bradthomasbrown/finite-field": "^2.0.0"
+    },
+    "devDependencies": {
+        "fc_a": "npm:@bradthomasbrown/finite-curve@^2.2.0",
+        "ff_a": "npm:@bradthomasbrown/finite-field@^1.1.0"
     }
 }
