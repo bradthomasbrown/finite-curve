@@ -10,14 +10,6 @@ const F1 = new FiniteField1(p);
 const E0 = new FiniteCurve0(F0, 2, 3);
 const E1 = new FiniteCurve1(F1, 2, 3);
 
-console.log("sqrt");
-for (let i = 1; i < p; i++) {
-    const s0 = F0.sqrt_p3mod4(i);
-    const s1 = F1.sqrt(i);
-    console.log(`\t${i}, ${s1} === ${s0}, ${s1 === s0}`);
-    if (s1 !== s0) throw new Error(`mismatch on a = ${i}, [${s0} ${s1}]`);
-}
-
 console.log("solve");
 for (let i = 0n; i < p; i++) {
     const P0 = new FinitePoint(); P0.x = i;
